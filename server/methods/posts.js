@@ -1,7 +1,7 @@
 Meteor.methods({
 	createPost: function(title, content){
 		var user = Meteor.user();
-		var alias = title.replace(" ", "-");
+		var alias = title.replace(/ |'|"/g, "-");
 		var created = new Date();
 		var resumeText = content.substring(0, 255);
 		
