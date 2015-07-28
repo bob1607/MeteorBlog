@@ -1,9 +1,11 @@
 <template name="postFull">
-	<h1>{{title}}</h1>
-	<p>{{content}}</p>
-	{{#if isInRole 'admin'}}
-		<div class="adminActionOnPost">
-			<a href="{{pathFor 'postsEdit'}}">Edit Post</a>
-		</div>
-	{{/if}}
+	<div class="postFull">
+		<h1>{{title}}</h1>
+		<p>{{content}}</p>
+		{{#if isInRole 'admin'}}
+			<div class="adminActionOnPost">
+				<a href="{{pathFor 'postsEdit'}}">Edit Post</a>
+			</div>
+		{{/if}}
+	</div>
 </template>

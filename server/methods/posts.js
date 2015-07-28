@@ -28,5 +28,32 @@ Meteor.methods({
 			_id : postId,
 			alias : post.alias
 		};
+	},
+	
+	postsUpdate: function(currentAlias, newTitle, newContent){
+		var newAlias = newTitle.replace(/ |'|"/g, "-");
+		
+		var postWithSameAlias = Posts.findOne({alias: newAlias});
+		if(postWithSameAlias){
+			return {
+				aliasAlreadyExists : true,
+				alias: postWithSameAlias.alias
+			}
+		}
+		
+		Posts.update({alias: currentAlias}, {
+			$set : {
+				title: newTitle,
+				alias: newAlias,
+				content: newContent
+			}
+			});
+		
+		return {
+			title: newTitle,
+			alias: newAlias,
+			content: newContent
+		};
+		
 	}
 });
