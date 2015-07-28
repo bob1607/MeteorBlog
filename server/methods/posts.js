@@ -10,7 +10,7 @@ Meteor.methods({
 		var postWithSameAlias = Posts.findOne({alias: alias});
 		if(postWithSameAlias){
 			return {
-				aliasAlreadyExist : true,
+				aliasAlreadyExists : true,
 				alias: postWithSameAlias.alias
 			}
 		}

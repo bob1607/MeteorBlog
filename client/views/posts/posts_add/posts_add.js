@@ -11,6 +11,10 @@ Template.postsAdd.events({
 				return alert(error.reason);
 			}
 			
+			if(result.aliasAlreadyExists){
+				return alert("This alias already exists. Choose another title");
+			}
+			
 			Router.go("postFull", {alias: result.alias});
 		});
 	}
