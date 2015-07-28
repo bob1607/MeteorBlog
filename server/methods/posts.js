@@ -7,6 +7,14 @@ Meteor.methods({
 		
 		var post = {};
 		
+		var postWithSameAlias = Posts.findOne({alias: alias});
+		if(postWithSameAlias){
+			return {
+				aliasAlreadyExist : true,
+				alias: postWithSameAlias.alias
+			}
+		}
+		
 		post.title = title;
 		post.content = content;
 		post.owner = user._id;
