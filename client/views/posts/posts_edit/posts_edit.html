@@ -1,0 +1,16 @@
+<template name="postsEdit">
+	<h2>Edit This Post</h2>
+	<form>
+		<div class="form-group">
+			<label>Title : </label>
+			<input type="text" class="form-control" name="title" value="{{title}}">
+		</div>
+		<div class="form-group">
+			<label>Content : </label>
+			<textarea class="form-control" rows="4" name="content" value="{{content}}"></textarea>
+		</div>
+		<div class="form-group">
+			<input type="submit" value="Update" class="btn btn-primary"/>
+		</div>
+	</form>
+</template>
