@@ -55,5 +55,21 @@ Meteor.methods({
 			content: newContent
 		};
 		
+	},
+	
+	postsDelete: function(aliasToDelete){
+		var checkPostExistence = Posts.findOne({alias : aliasToDelete});
+		
+		if(checkPostExistence){
+			Posts.remove({alias: aliasToDelete});
+			return {
+				postExistence : true,
+				deleted : true	
+			};
+		} else {
+			return {
+				postExistence : false
+			};
+		}
 	}
 });

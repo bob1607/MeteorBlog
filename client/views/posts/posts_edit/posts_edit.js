@@ -22,5 +22,27 @@ Template.postsEdit.events({
 			
 		});
 		
+	},
+	
+	"click .delete" : function(e){
+		e.preventDefault();
+		
+		if(confirm("Are you sure you want to delete this post ?")){
+			var currentAlias = this.alias;
+			
+			Meteor.call("postsDelete", currentAlias, function(error, result){
+				if(error){
+					return alert(error.reason);
+				}
+				
+				if(!result.postExistence){
+					return alert("This post doesn't exist");
+				}
+				
+				if(result.deleted){
+					Router.go("postsList");
+				}
+			});
+		}
 	}
 });
