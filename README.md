@@ -8,3 +8,4 @@ Small blog system that I'm creating to improve my experience with Meteor.
  	- Changing all letters to lowercase.
  - Posts editing:
  	- Add the possibility to delete posts.
+ - Implement Comments system
